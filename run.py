@@ -1,9 +1,28 @@
 import random
-from users import User
 from users import Credentials
+from users import User
 from tkinter import *
 
 
+
+def create_account(account_name, created_username, created_password):
+   '''
+   function to create a new account
+   '''
+   new_account = Credentials(account_name, created_username,created_password)
+   return new_account
+
+def save_accounts(credentials):
+   '''
+   function to save the new account
+   '''
+   credentials.save_account()
+
+def display_account():
+   '''
+   function to display all accounts saved
+   '''
+   return Credentials.display_accounts()
 
 def main():
  print("Welcome to PassLOCKER!")
@@ -12,13 +31,13 @@ def main():
 while True:
    print("Please user one of the short-cods below to navigate the platform.")
    print('\n')
-   print("1.cr to create a new account. 2.lg to log into your account. 3.vi to view your saved passwords. 3.de to delete your saved passwords. 4.ex to exit the platform")
+   print("1.cr to create a new account. 2.lg to log into your account. 3.vi to view your saved passwords. 4.cp to create a new password to save 5.de to delete your saved passwords. 6.ex to exit the platform")
    codes = input("Code..").lower()
 
    if codes == "cr":
       print("Create new username")
       new_username = input("Username..")
- 
+
       print("Create new password")
       new_password = input("Password..")
 
@@ -52,22 +71,29 @@ while True:
          print(f"Welcome {log_username} to your password account")
          print("\n")
          
-   elif codes == "lg":
-      print("Welcome back")
-      print("\n")
-      print("Input your login credentials below.") 
-      print("\n")
-      ent_username = input("Username..")
-      ent_password = input("Password..")
-      print("\n")
-
-   while ent_username != "Testing" or ent_password != "12345":
-      print("Invalid username or password.Try this Username = Testing and Password = 12345")
-      print("\n")
-      ent_username = input("Username..")
-      ent_password = input("Password..")
-      print("\n")
-
-   else:
-      print("Logged in successfully")
+   
      
+   elif codes == "cp":
+      print("Lets create a new account")
+      print("\n")
+      account_name = input("Account name..")
+      created_username = input("Username..")
+      created_password = input("Password..")
+     # save_accounts(create_account(account_name,created_username,created_password))
+      print ('\n')
+      print(f"New account: {account_name} has been successfully created with the following credentials: \n Username: {created_username} --- Password:{created_password}")
+      print ('\n')
+   
+   elif codes == "vi":
+      print("-"*10)
+      if display_account():
+         print("\nHere is a list of all your accounts:\n")
+         for item in display_account():
+            print(item.init_account +"\t --> "+ item.account_username +"\t --> "+ item.account_passsword)
+      else:
+         print("\n You do not have any accounts saved \n")
+
+
+
+if __name__ == "__main__":
+    main()
