@@ -1,6 +1,8 @@
 import random
 from users import User
- 
+from tkinter import *
+
+
 
 def main():
  print("Welcome to PassLOCKER!")
@@ -15,7 +17,7 @@ while True:
    if codes == "cr":
       print("Create new username")
       new_username = input("Username..")
-
+ 
       print("Create new password")
       new_password = input("Password..")
 
@@ -66,6 +68,5 @@ while True:
       print("\n")
 
    else:
-      print("Log in successful")
-      print("\n")
+      print("Logged in successfully")
      

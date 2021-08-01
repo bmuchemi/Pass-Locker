@@ -22,6 +22,10 @@ def save_users(self):
     User.users_list.append(self)
 
 
-  
+class Credentials :
+
+    """
+    Creates new accounts Credentials of a user.
+    """
 
 
