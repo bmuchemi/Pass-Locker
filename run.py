@@ -1,5 +1,6 @@
 import random
 from users import User
+from users import Credentials
 from tkinter import *
 
 
