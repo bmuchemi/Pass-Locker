@@ -1,8 +1,6 @@
 import random
-from users import Credentials
 from users import User
-from tkinter import *
-
+from users import Credentials
 
 
 def create_account(account_name,created_username,created_password):
@@ -16,7 +14,8 @@ def save_accounts(credentials):
    '''
    function to save the new account
    '''
-   credentials.save_account()
+   credentials.save_accounts(credentials) 
+
 
 def display_account():
    '''
@@ -29,6 +28,7 @@ def delete_account(credentials):
    credentials.delete_passwords()
 
 def main():
+
  print("Welcome to PassLOCKER!")
  print('\n')
 
@@ -79,23 +79,25 @@ while True:
          
    
      
-   elif codes == "cp":
-      print("Lets create a new account")
-      print("\n")
-      account_name = input("Account name..")
-      created_username = input("Username..")
-      created_password = input("Password..")
-      save_accounts(create_account(account_name,created_username,created_password))
-      print ('\n')
-      print(f"New account: {account_name} has been successfully created with the following credentials: \n Username: {created_username} --- Password:{created_password}")
+   elif codes == 'cp':
+      print("-"*10)
+      print("Account name ....(eg: twitter)")
+      account_name = input()
+      print("Username ...")
+      created_username = input()
+      print("Password...")
+      created_password = input()
+      save_accounts(create_account(account_name, created_username, created_password))
+      print ('Your account has been created successfully!\n')
+      print(f"New account: {account_name} \n Username: {created_username} --- Password:{created_password}")
       print ('\n')
    
    elif codes == "vi":
       print("-"*10)
       if display_account():
          print("\nHere is a list of all your accounts:\n")
-         for item in display_account():
-            print(item.init_account +"\t --> "+ item.account_username +"\t --> "+ item.account_passsword)
+         for accounts in display_account():
+            print(accounts.init_account +"\t --> "+ accounts.account_username +"\t --> "+ accounts.account_passsword)
       else:
          print("\n You do not have any accounts saved \n")
 
@@ -119,6 +121,12 @@ while True:
    else:
       print("-"*10)
       print("\nInvalid short code. Please try again\n")
+
+else:
+   print("-"*10)
+   print("\n")
+   print("Invalid codes choosen.Use the correct code to continue.")
+   
 
 if __name__ == "__main__":
    main()

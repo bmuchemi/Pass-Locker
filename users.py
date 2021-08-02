@@ -1,4 +1,4 @@
-class User : 
+class User: 
 
     """
     Create new instance of users
@@ -22,7 +22,7 @@ def save_users(self):
     User.users_list.append(self)
 
 
-class Credentials :
+class Credentials:
 
     """
     Creates new accounts Credentials of a user.
@@ -30,7 +30,7 @@ class Credentials :
 
     credentials_list = []
 
-def __init__(self,init_account,account_username,account_password):
+def __init__ (self,init_account,account_username,account_password):
 
     self.init_account = init_account
     self.account_username = account_username
