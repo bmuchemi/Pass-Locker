@@ -44,7 +44,7 @@ def save_account(self):
 
     Credentials.credentials_list.append(self)
 
-def delete_password(self):
+def delete_passwords(self):
 
     """
     Method to delete password accounts
