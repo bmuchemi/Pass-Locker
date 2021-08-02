@@ -5,11 +5,11 @@ from tkinter import *
 
 
 
-def create_account(account_name, created_username, created_password):
+def create_account(account_name,created_username,created_password):
    '''
    function to create a new account
    '''
-   new_account = Credentials(account_name, created_username,created_password)
+   new_account = Credentials(account_name,created_username,created_password)
    return new_account
 
 def save_accounts(credentials):
@@ -22,7 +22,10 @@ def display_account():
    '''
    function to display all accounts saved
    '''
-   return Credentials.display_accounts()
+   redentials.display_passwords()
+
+def delete_account(credentials):
+   return Credentials.delete_password()
 
 def main():
  print("Welcome to PassLOCKER!")
@@ -79,21 +82,29 @@ while True:
       account_name = input("Account name..")
       created_username = input("Username..")
       created_password = input("Password..")
-     # save_accounts(create_account(account_name,created_username,created_password))
+      save_accounts(create_account(account_name,created_username,created_password))
       print ('\n')
       print(f"New account: {account_name} has been successfully created with the following credentials: \n Username: {created_username} --- Password:{created_password}")
       print ('\n')
    
    elif codes == "vi":
       print("-"*10)
-      if display_account():
+      if display_account() != []:
          print("\nHere is a list of all your accounts:\n")
          for item in display_account():
             print(item.init_account +"\t --> "+ item.account_username +"\t --> "+ item.account_passsword)
       else:
          print("\n You do not have any accounts saved \n")
 
-
+   elif codes == "de":
+      print("-"*10)
+      print("Input account you want to delete.")
+      print("-"*10)
+      delete = input("Account name..")
+      if delete:
+         delete_account(delete)
+         for left in display_account():
+            print(left.account_name +"\t --> "+ left.username +"\t --> "+ left.password)
 
 if __name__ == "__main__":
     main()

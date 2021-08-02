@@ -53,7 +53,7 @@ def delete_password(self):
     Credentials.credentials_list.remove(self)
 
 @classmethod
-def display_accounts(cls):
+def display_passwords(cls):
 
     """
     Method to display passwords saved
