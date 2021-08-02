@@ -66,7 +66,7 @@ def display_passwords(cls):
 def search_passwords(cls, search_accounts):
     
     """
-    Method to search for saved passwords
+    Method to search for saved passwords accounts
     """
 
     for account in cls.credentials_list:

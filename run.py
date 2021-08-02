@@ -41,11 +41,13 @@ while True:
    if codes == "cr":
       print("Create new username")
       new_username = input("Username..")
+      print("\n")
 
       print("Create new password")
       new_password = input("Password..")
-
+      print("\n")
       print("Confirm password")
+      print("\n")
       new_confirm = input("Password.")
 
       while new_confirm != new_password:
@@ -109,6 +111,14 @@ while True:
       else:
          print("\n")
          print("There is no such saved account to delete")
+
+   elif codes == "ex":
+      print("-"*10)
+      print(f"Thankyou {new_username} for choosing passLOCKER")
+      break
+   else:
+      print("-"*10)
+      print("\nInvalid short code. Please try again\n")
 
 if __name__ == "__main__":
     main()

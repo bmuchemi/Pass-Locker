@@ -9,12 +9,6 @@ class UserTest(unittest.TestCase):
         """
         self.new_account = Credentials("twitter","Benjamin","1234")
         
-
-    def test_init(self):
-
-         self.assertEqual(self.new_account("twitter","Benjamin","12345t"))
-
-    
     def tearDown(self):
         '''
         method called after each user test
