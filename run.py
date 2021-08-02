@@ -90,7 +90,7 @@ while True:
    
    elif codes == "vi":
       print("-"*10)
-      if display_account() != []:
+      if display_account():
          print("\nHere is a list of all your accounts:\n")
          for item in display_account():
             print(item.init_account +"\t --> "+ item.account_username +"\t --> "+ item.account_passsword)

@@ -8,6 +8,12 @@ class UserTest(unittest.TestCase):
         method run before each test
         """
         self.new_account = Credentials("twitter","Benjamin","1234")
+        
+
+    def test_init(self):
+
+         self.assertEqual(self.new_account("twitter","Benjamin","12345t"))
+
     
     def tearDown(self):
         '''
