@@ -22,10 +22,11 @@ def display_account():
    '''
    function to display all accounts saved
    '''
-   redentials.display_passwords()
+   credentials.display_passwords()
 
 def delete_account(credentials):
-   return Credentials.delete_password()
+
+   credentials.delete_password()
 
 def main():
  print("Welcome to PassLOCKER!")
@@ -104,7 +105,10 @@ while True:
       if delete:
          delete_account(delete)
          for left in display_account():
-            print(left.account_name +"\t --> "+ left.username +"\t --> "+ left.password)
+            print(left.account_name + -"--> "+ left.username +"---> "+ left.password)
+      else:
+         print("\n")
+         print("There is no such saved account to delete.")
 
 if __name__ == "__main__":
     main()
